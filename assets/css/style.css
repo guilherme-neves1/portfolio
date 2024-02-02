@@ -64,6 +64,14 @@ ul {
 
 /* =================== OTHER DEVICES =================== */
 @media (min-width: 380px) and (max-width: 700px) {
+  .flex .swiper .swiper-pagination-bullet {
+    height: 20px;
+    width: 25px;
+    border-radius: 9px;
+    margin: 0 5px;
+    background-color: var(--BLUE-COLOR);
+  }
+
   header .header nav.nav_menu {
     width: 50%;
   }
@@ -152,15 +160,13 @@ ul {
   }
 
   section#certificates .flex h4 {
-    font-size: 1rem;
+    font-size: 1.2rem;
+    text-align: center;
   }
 
   section#certificates .flex p {
-    font-size: 0.675rem;
-  }
-
-  section#certificates .flex p {
-    font-size: 0.675rem;
+    font-size: 0.78rem;
+    text-align: justify;
   }
 
   section#certificates .container .flex .swiper {
@@ -226,6 +232,14 @@ ul {
 }
 
 @media (min-width: 701px) and (max-width: 1000px) {
+  .flex .swiper .swiper-pagination-bullet {
+    height: 10px;
+    width: 30px;
+    border-radius: 9px;
+    margin: 0 5px;
+    background-color: var(--BLUE-COLOR);
+  }
+
   header nav.nav_menu {
     width: 50%;
   }

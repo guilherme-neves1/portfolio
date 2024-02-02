@@ -112,22 +112,22 @@ if (btnClose) {
 // ==================== END HEADER ====================
 
 // ==================== SKILLS SWIPER ====================
-var swiper = new Swiper(".mySwiper", {
-  slidesPerView: 3,
-  spaceBetween: 90,
-  freeMode: true,
-  pagination: {
-    el: ".swiper-pagination",
-    clickable: true,
-  },
-});
+if (window.innerWidth >= 1000) {
+  var swiper = new Swiper(".mySwiper", {
+    slidesPerView: 3,
+    centeredSlides: true,
+    spaceBetween: 30,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+  });
+}
 
-if (window.innerWidth < 1000) {
-  var swiperTwo = new Swiper(".mySwiper", {
+if (window.innerWidth >= 700 && window.innerWidth < 1000) {
+  var twoSwiper = new Swiper(".mySwiper", {
     slidesPerView: 2,
     spaceBetween: 60,
-    centeredSlides: true,
-    freeMode: true,
     pagination: {
       el: ".swiper-pagination",
       clickable: true,
@@ -136,11 +136,10 @@ if (window.innerWidth < 1000) {
 }
 
 if (window.innerWidth < 700) {
-  var swiperThree = new Swiper(".mySwiper", {
+  swiper = new Swiper(".mySwiper", {
     slidesPerView: 1,
-    spaceBetween: 60,
     centeredSlides: true,
-    freeMode: true,
+    spaceBetween: 60,
     pagination: {
       el: ".swiper-pagination",
       clickable: true,
