@@ -64,6 +64,10 @@ ul {
 
 /* =================== OTHER DEVICES =================== */
 @media (min-width: 380px) and (max-width: 700px) {
+  header .header nav.nav_menu {
+    width: 50%;
+  }
+
   section#start .start_text h1 {
     font-size: 1.5rem;
   }

@@ -136,7 +136,7 @@ if (window.innerWidth < 1000) {
 }
 
 if (window.innerWidth < 700) {
-  var swiperTwo = new Swiper(".mySwiper", {
+  var swiperThree = new Swiper(".mySwiper", {
     slidesPerView: 1,
     spaceBetween: 60,
     centeredSlides: true,
