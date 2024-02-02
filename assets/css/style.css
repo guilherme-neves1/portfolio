@@ -65,10 +65,10 @@ ul {
 /* =================== OTHER DEVICES =================== */
 @media (min-width: 380px) and (max-width: 700px) {
   .flex .swiper .swiper-pagination-bullet {
-    height: 20px;
-    width: 25px;
+    height: 15px;
+    width: 20px;
     border-radius: 9px;
-    margin: 0 5px;
+    margin: 0 3px;
     background-color: var(--BLUE-COLOR);
   }
 
@@ -174,7 +174,7 @@ ul {
   }
 
   section#certificates .container .flex .swiper .swiper-slide {
-    margin-bottom: 20px;
+    margin-bottom: 15px;
   }
 
   section#contact footer .container h3 {
