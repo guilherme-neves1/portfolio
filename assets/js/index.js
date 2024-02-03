@@ -32,6 +32,11 @@ skill[0].addEventListener("mouseover", () => {
   skillDesc.innerHTML =
     "O HTML5 é uma Linguagem de Marcação de Hipertexto, usado para construir a <strong>estrutura</strong> da página web e permitindo criar sites altamente eficientes por meio de tags específicas para cada tipo de conteúdo. <br /> Desenvolvo meu aprendizado em HTML através de cursos, da faculdade, de projetos, de tutoriais etc.";
 
+  skill[0].classList.add("html-color");
+  skill[1].classList.remove("css-color");
+  skill[2].classList.remove("js-color");
+  skill[3].classList.remove("bd-color");
+
   skillBar[0].classList.add("barActive");
   skillBar[1].classList.remove("barActive");
   skillBar[2].classList.remove("barActive");
@@ -41,6 +46,11 @@ skill[0].addEventListener("mouseover", () => {
 skill[1].addEventListener("mouseover", () => {
   skillDesc.innerHTML =
     "CSS é usado para <strong>estilizar</strong> elementos escritos em uma linguagem de marcação como HTML. Utilizando o CSS é possível alterar tanto a cor do texto e de botões, quanto criar animações por todo o site. <br /> Portanto, aprendo CSS em conjunto com o HTML, sempre buscando usar das boas práticas para criar um site acessível e bem construído.";
+
+  skill[0].classList.remove("html-color");
+  skill[1].classList.add("css-color");
+  skill[2].classList.remove("js-color");
+  skill[3].classList.remove("bd-color");
 
   skillBar[0].classList.remove("barActive");
   skillBar[1].classList.add("barActive");
@@ -52,6 +62,11 @@ skill[2].addEventListener("mouseover", () => {
   skillDesc.innerHTML =
     "JavaScript é uma <strong>linguagem de programação</strong> que permite implementar itens complexos em páginas web, assim, a página faz mais do que simplesmente mostrar as informações estáticas do HTML e CSS. Com JavaScript é possível criar conteúdos interativos e dinâmicos no site, sendo possível desempenhar ações em cada elemento. <br /> Essa é a linguagem de programação que escolhi focar, tanto pelo seu potencial quanto a sua popularidade, facilitando na hora de buscar conteúdos. Além de também ser uma linguagem usada tanto para o Front End quanto o Back End, através de frameworks e bibliotecas.";
 
+  skill[0].classList.remove("html-color");
+  skill[1].classList.remove("css-color");
+  skill[2].classList.add("js-color");
+  skill[3].classList.remove("bd-color");
+
   skillBar[0].classList.remove("barActive");
   skillBar[1].classList.remove("barActive");
   skillBar[2].classList.add("barActive");
@@ -61,6 +76,11 @@ skill[2].addEventListener("mouseover", () => {
 skill[3].addEventListener("mouseover", () => {
   skillDesc.innerHTML =
     "Um <strong>Banco de Dados Relacional</strong> é um banco de dados que modela os dados de uma forma que eles sejam percebidos pelo usuário como tabelas, ou mais formalmente relações. <br /> Dedico meus estudos também ao aprendizado de Banco de Dados SQL.";
+
+  skill[0].classList.remove("html-color");
+  skill[1].classList.remove("css-color");
+  skill[2].classList.remove("js-color");
+  skill[3].classList.add("bd-color");
 
   skillBar[0].classList.remove("barActive");
   skillBar[1].classList.remove("barActive");

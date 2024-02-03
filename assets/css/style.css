@@ -147,6 +147,26 @@ ul {
     font-size: 3rem;
   }
 
+  section#skills .container .flex .grid .grid_item .fa-html5 {
+    color: #db5130;
+  }
+
+  section#skills .container .flex .grid .grid_item .fa-css3-alt {
+    color: #2f9ed8;
+  }
+
+  section#skills .container .flex .grid .grid_item .fa-js {
+    color: #d9a62f;
+  }
+
+  section#skills .container .flex .grid .grid_item .fa-database {
+    color: #ffffff;
+  }
+
+  section#skills .container .flex .grid .grid_item .bar {
+    display: none;
+  }
+
   section#skills .container .flex .skills_description {
     display: none;
   }
@@ -694,6 +714,7 @@ section.skills h3 {
 section.skills .grid i {
   font-size: 10rem;
   position: relative;
+  transition: all 0.25s ease;
 }
 
 section.skills .grid .grid_item {
@@ -739,6 +760,22 @@ section.skills .skills_description {
 section.skills .skills_description p {
   text-align: justify;
   font-size: 1rem;
+}
+
+.html-color {
+  color: #db5130;
+}
+
+.css-color {
+  color: #2f9ed8;
+}
+
+.js-color {
+  color: #d9a62f;
+}
+
+.bd-color {
+  color: #ffffff;
 }
 
 /* =============== CERTIFICATES =============== */
