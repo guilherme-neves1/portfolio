@@ -143,6 +143,10 @@ if (window.innerWidth >= 1000) {
       el: ".swiper-pagination",
       clickable: true,
     },
+    autoplay: {
+      delay: 2500,
+      disableOnInteraction: false,
+    },
     navigation: {
       nextEl: ".swiper-button-next",
       prevEl: ".swiper-button-prev",
@@ -157,6 +161,10 @@ if (window.innerWidth >= 700 && window.innerWidth < 1000) {
     pagination: {
       el: ".swiper-pagination",
       clickable: true,
+    },
+    autoplay: {
+      delay: 2500,
+      disableOnInteraction: false,
     },
     navigation: {
       nextEl: ".swiper-button-next",
@@ -173,6 +181,10 @@ if (window.innerWidth < 700) {
     pagination: {
       el: ".swiper-pagination",
       clickable: true,
+    },
+    autoplay: {
+      delay: 2500,
+      disableOnInteraction: false,
     },
     navigation: {
       nextEl: ".swiper-button-next",
