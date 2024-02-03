@@ -168,3 +168,9 @@ if (window.innerWidth < 700) {
     },
   });
 }
+
+const about = document.querySelectorAll(
+  "section.about > .container > div > .about_content .about_image img"
+);
+
+console.log(about.length);
