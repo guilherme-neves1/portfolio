@@ -186,7 +186,8 @@ ul {
 
   section#certificates .flex p {
     font-size: 0.78rem;
-    text-align: justify;
+    text-align: start;
+    margin-left: 30px;
   }
 
   section#certificates .container .flex .swiper {
@@ -266,6 +267,17 @@ ul {
 
   section#skills .grid .grid_item i {
     font-size: 5rem;
+  }
+
+  section#certificates .flex h4 {
+    font-size: 1.2rem;
+    text-align: center;
+  }
+
+  section#certificates .flex p {
+    font-size: 0.875rem;
+    text-align: start;
+    margin-left: 25px;
   }
 
   footer .flex .form-contact {
@@ -630,10 +642,6 @@ section.about > .container > div > .about_content .about_image img {
   opacity: 0.7;
   cursor: pointer;
 }
-/* 
-
-
-*/
 
 section.about > .container > div > .about_content .code-img-1 {
   border-top-left-radius: 10px;
@@ -888,6 +896,11 @@ section.certificates .container .flex h3 {
   width: 26px;
   border-radius: 25px;
   background-color: var(--BLUE-COLOR);
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: var(--DEFAULT-FONT-COLOR);
 }
 
 section.certificates .cert_i_wrapper {
