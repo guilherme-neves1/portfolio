@@ -114,8 +114,6 @@ const scrollActive = () => {
 window.addEventListener("scroll", scrollActive);
 // ==================== END SCROLL ACTIVE ====================
 
-window.addEventListener("scroll", scrollActive);
-
 // ==================== HEADER ====================
 if (btnToggle) {
   btnToggle.addEventListener("click", () => {
@@ -132,6 +130,33 @@ if (btnClose) {
   });
 }
 // ==================== END HEADER ====================
+
+const itemsMenu = document.querySelectorAll("header .menu_link");
+console.log(itemsMenu.length);
+
+itemsMenu[0].addEventListener("click", () => {
+  navMenu.classList.remove("show-menu");
+});
+
+itemsMenu[1].addEventListener("click", () => {
+  navMenu.classList.remove("show-menu");
+});
+
+itemsMenu[2].addEventListener("click", () => {
+  navMenu.classList.remove("show-menu");
+});
+
+itemsMenu[3].addEventListener("click", () => {
+  navMenu.classList.remove("show-menu");
+});
+
+itemsMenu[4].addEventListener("click", () => {
+  navMenu.classList.remove("show-menu");
+});
+
+itemsMenu[5].addEventListener("click", () => {
+  navMenu.classList.remove("show-menu");
+});
 
 // ==================== SKILLS SWIPER ====================
 if (window.innerWidth >= 1000) {
@@ -192,9 +217,4 @@ if (window.innerWidth < 700) {
     },
   });
 }
-
-const about = document.querySelectorAll(
-  "section.about > .container > div > .about_content .about_image img"
-);
-
-console.log(about.length);
+// ==================== END SKILLS SWIPER ====================

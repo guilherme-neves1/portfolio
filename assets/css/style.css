@@ -73,7 +73,7 @@ ul {
   }
 
   header .header nav.nav_menu {
-    width: 50%;
+    width: 100%;
   }
 
   section#start .start_text h1 {
@@ -314,8 +314,8 @@ ul {
 
   header nav {
     position: absolute;
-    top: 0;
-    right: -100%;
+    top: -1000%;
+    right: 0;
     display: flex;
     flex-direction: column;
     background-color: hsla(210, 33%, 9%, 0.2);
@@ -348,6 +348,7 @@ ul {
     display: block;
     position: absolute;
     top: 0;
+    right: 47px;
     z-index: 100;
   }
 
@@ -517,7 +518,7 @@ nav > ul > li > a:hover::after {
 }
 
 .show-menu {
-  right: 0;
+  top: 0;
 }
 
 .hidden-toggle {
