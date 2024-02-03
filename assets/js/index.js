@@ -114,6 +114,8 @@ const scrollActive = () => {
 window.addEventListener("scroll", scrollActive);
 // ==================== END SCROLL ACTIVE ====================
 
+window.addEventListener("scroll", scrollActive);
+
 // ==================== HEADER ====================
 if (btnToggle) {
   btnToggle.addEventListener("click", () => {
