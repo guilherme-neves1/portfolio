@@ -132,7 +132,6 @@ if (btnClose) {
 // ==================== END HEADER ====================
 
 const itemsMenu = document.querySelectorAll("header .menu_link");
-console.log(itemsMenu.length);
 
 itemsMenu[0].addEventListener("click", () => {
   navMenu.classList.remove("show-menu");
