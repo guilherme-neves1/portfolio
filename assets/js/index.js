@@ -9,7 +9,7 @@ const scrollActiveMenuLink = () => {
       sectionTop = current.offsetTop - 300,
       sectionId = current.getAttribute("id"),
       sectionClass = document.querySelector(
-        ".nav_menu a[href*=" + sectionId + "]"
+        ".nav_menu a[href='#" + sectionId + "']"
       );
 
     if (scrollDown > sectionTop && scrollDown <= sectionTop + sectionHeight) {
@@ -28,9 +28,9 @@ const navMenuMobile = document.querySelector("nav");
 function showMenuMobile() {
   const mobMenuShowClose = document.querySelectorAll(".show-close");
 
-  for (var i = 0; i < mobMenuShowClose.length; i++) {
-    mobMenuShowClose[i].addEventListener("click", () => {
-      return navMenuMobile.classList.toggle("show-menu-mobile");
+  for (let i = 0; i < mobMenuShowClose.length; i++) {
+    mobMenuShowClose[i].addEventListener("click", function () {
+      navMenuMobile.classList.toggle("show-menu-mobile");
     });
   }
 }
@@ -40,9 +40,9 @@ showMenuMobile();
 // ==================== Menu Mobile Hidden on Click Link ====================
 function menuMobileHiddenClick() {
   const itemsMenu = document.querySelectorAll("header .menu_link");
-  for (var i = 0; i < itemsMenu.length; i++) {
+  for (let i = 0; i < itemsMenu.length; i++) {
     itemsMenu[i].addEventListener("click", () => {
-      return navMenuMobile.classList.remove("show-menu-mobile");
+      navMenuMobile.classList.remove("show-menu-mobile");
     });
   }
 }
@@ -50,12 +50,10 @@ function menuMobileHiddenClick() {
 menuMobileHiddenClick();
 
 // ==================== Projects Scroll Reveal ====================
-window.addEventListener("scroll", reveal);
-
 function reveal() {
   const reveals = document.querySelectorAll(".reveal");
 
-  for (var i = 0; i < reveals.length; i++) {
+  for (let i = 0; i < reveals.length; i++) {
     const windowheight = window.innerHeight;
     const revealtop = reveals[i].getBoundingClientRect().top;
     const revealpoint = 20;
@@ -68,8 +66,10 @@ function reveal() {
   }
 }
 
+window.addEventListener("scroll", reveal);
+
 // ==================== More Projects ====================
-function showMoreProjects() {
+function toggleShowProjects() {
   const btnMoreProjects = document.querySelector(".btn-more"),
     projects = document.querySelector("section.projects .container > div");
 
@@ -77,137 +77,82 @@ function showMoreProjects() {
     projects.classList.toggle("project_active");
 
     if (projects.classList.contains("project_active")) {
-      return (btnMoreProjects.textContent = "Ver menos");
+      btnMoreProjects.textContent = "Ver menos";
+    } else {
+      btnMoreProjects.textContent = "Ver mais";
     }
-
-    return (btnMoreProjects.textContent = "Ver mais");
   });
 }
 
-showMoreProjects();
+toggleShowProjects();
 
 // ==================== Skills Swiper ====================
-if (window.innerWidth >= 1000) {
-  var swiper = new Swiper(".mySwiper", {
-    slidesPerView: 3,
-    centeredSlides: true,
-    spaceBetween: 30,
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
+var swiper = new Swiper(".mySwiper", {
+  slidesPerView: 3,
+  centeredSlides: true,
+  spaceBetween: 30,
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
+  autoplay: {
+    delay: 2500,
+    disableOnInteraction: false,
+  },
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+  breakpoints: {
+    1000: {
+      slidesPerView: 3,
+      centeredSlides: true,
+      spaceBetween: 30,
     },
-    autoplay: {
-      delay: 2500,
-      disableOnInteraction: false,
+    700: {
+      slidesPerView: 2,
+      spaceBetween: 60,
     },
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
+    0: {
+      slidesPerView: 1,
+      centeredSlides: true,
+      spaceBetween: 60,
     },
-  });
-}
-
-if (window.innerWidth >= 700 && window.innerWidth < 1000) {
-  var twoSwiper = new Swiper(".mySwiper", {
-    slidesPerView: 2,
-    spaceBetween: 60,
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-    },
-    autoplay: {
-      delay: 2500,
-      disableOnInteraction: false,
-    },
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
-  });
-}
-
-if (window.innerWidth < 700) {
-  swiper = new Swiper(".mySwiper", {
-    slidesPerView: 1,
-    centeredSlides: true,
-    spaceBetween: 60,
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-    },
-    autoplay: {
-      delay: 2500,
-      disableOnInteraction: false,
-    },
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
-  });
-}
+  },
+});
 
 // ==================== Skills Content ====================
-const skill = document.querySelectorAll("section.skills .grid i"),
-  skillDesc = document.querySelector(".skills .skills_description p"),
-  skillBar = document.querySelectorAll(".skills .grid .grid_item .bar");
+const skills = document.querySelectorAll("section.skills .skills-grid i");
+const skillDesc = document.querySelector(".skills .skills_description p");
+const skillBar = document.querySelectorAll(".skills .skills-grid .skill .bar");
 skillBar[0].classList.add("barActive");
 
-skill[0].addEventListener("mouseover", () => {
-  skillDesc.innerHTML =
-    "O HTML5 é uma Linguagem de Marcação de Hipertexto, usado para construir a <strong>estrutura</strong> da página web e permitindo criar sites altamente eficientes por meio de tags específicas para cada tipo de conteúdo. <br /> Desenvolvo meu aprendizado em HTML através de cursos, da faculdade, de projetos, de tutoriais etc.";
+const skillContents = [
+  "O HTML5 é uma Linguagem de Marcação de Hipertexto, usado para construir a <strong>estrutura</strong> da página web e permitindo criar sites altamente eficientes por meio de tags específicas para cada tipo de conteúdo. <br /> Desenvolvo meu aprendizado em HTML através de cursos, da faculdade, de projetos, de tutoriais etc.",
 
-  skill[0].classList.add("html-color");
-  skill[1].classList.remove("css-color");
-  skill[2].classList.remove("js-color");
-  skill[3].classList.remove("bd-color");
+  "CSS é usado para <strong>estilizar</strong> elementos escritos em uma linguagem de marcação como HTML. Utilizando o CSS é possível alterar tanto a cor do texto e de botões, quanto criar animações por todo o site. <br /> Portanto, aprendo CSS em conjunto com o HTML, sempre buscando usar das boas práticas para criar um site acessível e bem construído.",
 
-  skillBar[0].classList.add("barActive");
-  skillBar[1].classList.remove("barActive");
-  skillBar[2].classList.remove("barActive");
-  skillBar[3].classList.remove("barActive");
-});
+  "JavaScript é uma <strong>linguagem de programação</strong> que permite implementar itens complexos em páginas web, assim, a página faz mais do que simplesmente mostrar as informações estáticas do HTML e CSS. Com JavaScript é possível criar conteúdos interativos e dinâmicos no site, sendo possível desempenhar ações em cada elemento. <br /> Essa é a linguagem de programação que escolhi focar, tanto pelo seu potencial quanto a sua popularidade, facilitando na hora de buscar conteúdos. Além de também ser uma linguagem usada tanto para o Front End quanto o Back End, através de frameworks e bibliotecas.",
 
-skill[1].addEventListener("mouseover", () => {
-  skillDesc.innerHTML =
-    "CSS é usado para <strong>estilizar</strong> elementos escritos em uma linguagem de marcação como HTML. Utilizando o CSS é possível alterar tanto a cor do texto e de botões, quanto criar animações por todo o site. <br /> Portanto, aprendo CSS em conjunto com o HTML, sempre buscando usar das boas práticas para criar um site acessível e bem construído.";
+  "Um <strong>Banco de Dados Relacional</strong> é um banco de dados que modela os dados de uma forma que eles sejam percebidos pelo usuário como tabelas, ou mais formalmente relações. <br /> Dedico meus estudos também ao aprendizado de Banco de Dados SQL.",
+];
 
-  skill[0].classList.remove("html-color");
-  skill[1].classList.add("css-color");
-  skill[2].classList.remove("js-color");
-  skill[3].classList.remove("bd-color");
-
-  skillBar[0].classList.remove("barActive");
-  skillBar[1].classList.add("barActive");
-  skillBar[2].classList.remove("barActive");
-  skillBar[3].classList.remove("barActive");
-});
-
-skill[2].addEventListener("mouseover", () => {
-  skillDesc.innerHTML =
-    "JavaScript é uma <strong>linguagem de programação</strong> que permite implementar itens complexos em páginas web, assim, a página faz mais do que simplesmente mostrar as informações estáticas do HTML e CSS. Com JavaScript é possível criar conteúdos interativos e dinâmicos no site, sendo possível desempenhar ações em cada elemento. <br /> Essa é a linguagem de programação que escolhi focar, tanto pelo seu potencial quanto a sua popularidade, facilitando na hora de buscar conteúdos. Além de também ser uma linguagem usada tanto para o Front End quanto o Back End, através de frameworks e bibliotecas.";
-
-  skill[0].classList.remove("html-color");
-  skill[1].classList.remove("css-color");
-  skill[2].classList.add("js-color");
-  skill[3].classList.remove("bd-color");
-
-  skillBar[0].classList.remove("barActive");
-  skillBar[1].classList.remove("barActive");
-  skillBar[2].classList.add("barActive");
-  skillBar[3].classList.remove("barActive");
-});
-
-skill[3].addEventListener("mouseover", () => {
-  skillDesc.innerHTML =
-    "Um <strong>Banco de Dados Relacional</strong> é um banco de dados que modela os dados de uma forma que eles sejam percebidos pelo usuário como tabelas, ou mais formalmente relações. <br /> Dedico meus estudos também ao aprendizado de Banco de Dados SQL.";
-
-  skill[0].classList.remove("html-color");
-  skill[1].classList.remove("css-color");
-  skill[2].classList.remove("js-color");
-  skill[3].classList.add("bd-color");
-
-  skillBar[0].classList.remove("barActive");
-  skillBar[1].classList.remove("barActive");
-  skillBar[2].classList.remove("barActive");
-  skillBar[3].classList.add("barActive");
+skills.forEach((skill, index) => {
+  skill.addEventListener("mouseover", () => {
+    skillDesc.innerHTML = skillContents[index];
+    skills.forEach((s, i) => {
+      if (i === index) {
+        s.classList.add(`${["html", "css", "js", "bd"][index]}-color`);
+      } else {
+        s.classList.remove(`${["html", "css", "js", "bd"][i]}-color`);
+      }
+    });
+    skillBar.forEach((bar, i) => {
+      if (i === index) {
+        bar.classList.add("barActive");
+      } else {
+        bar.classList.remove("barActive");
+      }
+    });
+  });
 });

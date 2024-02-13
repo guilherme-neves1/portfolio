@@ -88,7 +88,7 @@ ul {
 }
 
 /* =================== OTHER DEVICES =================== */
-@media (min-width: 380px) and (max-width: 700px) {
+@media (min-width: 350px) and (max-width: 700px) {
   .flex .swiper .swiper-pagination-bullet {
     height: 15px;
     width: 20px;
@@ -172,27 +172,27 @@ ul {
     font-size: 1.3rem;
   }
 
-  section#skills .container .flex .grid .grid_item i {
+  section#skills .container .flex .grid .skill i {
     font-size: 3rem;
   }
 
-  section#skills .container .flex .grid .grid_item .fa-html5 {
+  section#skills .container .flex .grid .skill .fa-html5 {
     color: #db5130;
   }
 
-  section#skills .container .flex .grid .grid_item .fa-css3-alt {
+  section#skills .container .flex .grid .skill .fa-css3-alt {
     color: #2f9ed8;
   }
 
-  section#skills .container .flex .grid .grid_item .fa-js {
+  section#skills .container .flex .grid .skill .fa-js {
     color: #d9a62f;
   }
 
-  section#skills .container .flex .grid .grid_item .fa-database {
+  section#skills .container .flex .grid .skill .fa-database {
     color: #ffffff;
   }
 
-  section#skills .container .flex .grid .grid_item .bar {
+  section#skills .container .flex .grid .skill .bar {
     display: none;
   }
 
@@ -294,7 +294,7 @@ ul {
     width: 50%;
   }
 
-  section#skills .grid .grid_item i {
+  section#skills .grid .skill i {
     font-size: 5rem;
   }
 
@@ -367,7 +367,7 @@ ul {
     font-size: 1.2rem;
   }
 
-  header .header .btn-hambger {
+  header .header .btn-hamburger {
     display: block;
     position: absolute;
     right: 50px;
@@ -516,13 +516,13 @@ nav > ul > li > a:hover::after {
   transform: scale(1, 1);
 }
 
-.header .btn-hambger,
+.header .btn-hamburger,
 .header .btn-close {
   display: none;
   cursor: pointer;
 }
 
-.header .btn-hambger i {
+.header .btn-hamburger i {
   font-size: 2rem;
   cursor: pointer;
 }
@@ -809,12 +809,12 @@ section.skills {
   height: 600px;
 }
 
-section.skills .flex {
+section.skills .skills-content {
   flex-direction: column;
   align-items: center;
 }
 
-section.skills .grid {
+section.skills .skills-grid {
   width: 100%;
   grid-template-columns: repeat(4, 1fr);
   text-align: center;
@@ -825,17 +825,17 @@ section.skills h3 {
   font-size: var(--H2-H3-SIZE);
 }
 
-section.skills .grid i {
+section.skills .skills-grid i {
   font-size: 10rem;
   position: relative;
   transition: all 0.25s ease;
 }
 
-section.skills .grid .grid_item {
+section.skills .skills-grid .skill {
   position: relative;
 }
 
-section.skills .grid .bar {
+section.skills .skills-grid .bar {
   position: absolute;
   height: 0.5rem;
   width: 50%;
@@ -848,17 +848,17 @@ section.skills .grid .bar {
   transform: scale(1, 0);
 }
 
-section.skills .grid .grid_item .barActive {
+section.skills .skills-grid .skill .barActive {
   opacity: 1;
   transform: scale(1, 1);
 }
 
-section.skills .grid .grid_item .barRemove {
+section.skills .skills-grid .skill .barRemove {
   opacity: 0;
   transform: scale(1, 0);
 }
 
-section.skills .grid i::before {
+section.skills .skills-grid i::before {
   cursor: pointer;
 }
 
