@@ -1,19 +1,152 @@
-// ==================== More Projects ====================
-const buttonMoreProjects = document.querySelector(".btn-more"),
-  projects = document.querySelector("section.projects .container > div");
+// ==================== Scroll Active Menu Link ====================
+const sections = document.querySelectorAll("section[id]");
 
-buttonMoreProjects.addEventListener("click", () => {
-  projects.classList.toggle("project_active");
+const scrollActiveMenuLink = () => {
+  const scrollDown = window.scrollY;
 
-  if (projects.classList.contains("project_active")) {
-    return (buttonMoreProjects.textContent = "Ver menos");
+  sections.forEach((current) => {
+    const sectionHeight = current.offsetHeight,
+      sectionTop = current.offsetTop - 300,
+      sectionId = current.getAttribute("id"),
+      sectionClass = document.querySelector(
+        ".nav_menu a[href*=" + sectionId + "]"
+      );
+
+    if (scrollDown > sectionTop && scrollDown <= sectionTop + sectionHeight) {
+      sectionClass.classList.add("menu_active");
+    } else {
+      sectionClass.classList.remove("menu_active");
+    }
+  });
+};
+
+window.addEventListener("scroll", scrollActiveMenuLink);
+
+// ==================== Header Mobile Buttons ====================
+const navMenuMobile = document.querySelector("nav");
+
+function showMenuMobile() {
+  const mobMenuShowClose = document.querySelectorAll(".show-close");
+
+  for (var i = 0; i < mobMenuShowClose.length; i++) {
+    mobMenuShowClose[i].addEventListener("click", () => {
+      return navMenuMobile.classList.toggle("show-menu-mobile");
+    });
   }
+}
 
-  buttonMoreProjects.textContent = "Ver mais";
-});
+showMenuMobile();
 
-// ==================== SKILLS ====================
+// ==================== Menu Mobile Hidden on Click Link ====================
+function menuMobileHiddenClick() {
+  const itemsMenu = document.querySelectorAll("header .menu_link");
+  for (var i = 0; i < itemsMenu.length; i++) {
+    itemsMenu[i].addEventListener("click", () => {
+      return navMenuMobile.classList.remove("show-menu-mobile");
+    });
+  }
+}
 
+menuMobileHiddenClick();
+
+// ==================== Projects Scroll Reveal ====================
+window.addEventListener("scroll", reveal);
+
+function reveal() {
+  const reveals = document.querySelectorAll(".reveal");
+
+  for (var i = 0; i < reveals.length; i++) {
+    const windowheight = window.innerHeight;
+    const revealtop = reveals[i].getBoundingClientRect().top;
+    const revealpoint = 20;
+
+    if (revealtop < windowheight - revealpoint) {
+      reveals[i].classList.add("active");
+    } else {
+      reveals[i].classList.remove("active");
+    }
+  }
+}
+
+// ==================== More Projects ====================
+function showMoreProjects() {
+  const btnMoreProjects = document.querySelector(".btn-more"),
+    projects = document.querySelector("section.projects .container > div");
+
+  btnMoreProjects.addEventListener("click", () => {
+    projects.classList.toggle("project_active");
+
+    if (projects.classList.contains("project_active")) {
+      return (btnMoreProjects.textContent = "Ver menos");
+    }
+
+    return (btnMoreProjects.textContent = "Ver mais");
+  });
+}
+
+showMoreProjects();
+
+// ==================== Skills Swiper ====================
+if (window.innerWidth >= 1000) {
+  var swiper = new Swiper(".mySwiper", {
+    slidesPerView: 3,
+    centeredSlides: true,
+    spaceBetween: 30,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    autoplay: {
+      delay: 2500,
+      disableOnInteraction: false,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  });
+}
+
+if (window.innerWidth >= 700 && window.innerWidth < 1000) {
+  var twoSwiper = new Swiper(".mySwiper", {
+    slidesPerView: 2,
+    spaceBetween: 60,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    autoplay: {
+      delay: 2500,
+      disableOnInteraction: false,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  });
+}
+
+if (window.innerWidth < 700) {
+  swiper = new Swiper(".mySwiper", {
+    slidesPerView: 1,
+    centeredSlides: true,
+    spaceBetween: 60,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    autoplay: {
+      delay: 2500,
+      disableOnInteraction: false,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  });
+}
+
+// ==================== Skills Content ====================
 const skill = document.querySelectorAll("section.skills .grid i"),
   skillDesc = document.querySelector(".skills .skills_description p"),
   skillBar = document.querySelectorAll(".skills .grid .grid_item .bar");
@@ -78,139 +211,3 @@ skill[3].addEventListener("mouseover", () => {
   skillBar[2].classList.remove("barActive");
   skillBar[3].classList.add("barActive");
 });
-
-// ==================== Scroll Active Menu Link ====================
-const sections = document.querySelectorAll("section[id]");
-
-const scrollActiveMenuLink = () => {
-  const scrollDown = window.scrollY;
-
-  sections.forEach((current) => {
-    const sectionHeight = current.offsetHeight,
-      sectionTop = current.offsetTop - 300,
-      sectionId = current.getAttribute("id"),
-      sectionClass = document.querySelector(
-        ".nav_menu a[href*=" + sectionId + "]"
-      );
-
-    if (scrollDown > sectionTop && scrollDown <= sectionTop + sectionHeight) {
-      sectionClass.classList.add("menu_active");
-    } else {
-      sectionClass.classList.remove("menu_active");
-    }
-  });
-};
-
-window.addEventListener("scroll", scrollActiveMenuLink);
-
-// ==================== Header Mobile Buttons ====================
-
-function showMenuMobile() {
-  const mobMenuShowClose = document.querySelectorAll(".show-close"),
-    navMenuMobile = document.querySelector("nav");
-
-  for (var i = 0; i < mobMenuShowClose.length; i++) {
-    mobMenuShowClose[i].addEventListener("click", () => {
-      return navMenuMobile.classList.toggle("show-menu-mobile");
-    });
-  }
-}
-
-showMenuMobile();
-
-// btnClose.addEventListener("click", () => {
-//   navMenu.classList.remove("show-menu");
-// });
-
-// ==================== Menu Mobile Hidden on Click ====================
-function menuMobileHiddenClick() {
-  const itemsMenu = document.querySelectorAll("header .menu_link");
-  for (var i = 0; i < itemsMenu.length; i++) {
-    const navMenu = document.querySelector("nav");
-
-    itemsMenu[i].addEventListener("click", () => {
-      navMenu.classList.remove("show-menu");
-    });
-  }
-}
-
-menuMobileHiddenClick();
-
-// ==================== SCROLL REVEAL ====================
-window.addEventListener("scroll", reveal);
-
-function reveal() {
-  const reveals = document.querySelectorAll(".reveal");
-
-  for (var i = 0; i < reveals.length; i++) {
-    const windowheight = window.innerHeight;
-    const revealtop = reveals[i].getBoundingClientRect().top;
-    const revealpoint = 20;
-
-    if (revealtop < windowheight - revealpoint) {
-      reveals[i].classList.add("active");
-    } else {
-      reveals[i].classList.remove("active");
-    }
-  }
-}
-
-// ==================== SKILLS SWIPER ====================
-if (window.innerWidth >= 1000) {
-  var swiper = new Swiper(".mySwiper", {
-    slidesPerView: 3,
-    centeredSlides: true,
-    spaceBetween: 30,
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-    },
-    autoplay: {
-      delay: 2500,
-      disableOnInteraction: false,
-    },
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
-  });
-}
-
-if (window.innerWidth >= 700 && window.innerWidth < 1000) {
-  var twoSwiper = new Swiper(".mySwiper", {
-    slidesPerView: 2,
-    spaceBetween: 60,
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-    },
-    autoplay: {
-      delay: 2500,
-      disableOnInteraction: false,
-    },
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
-  });
-}
-
-if (window.innerWidth < 700) {
-  swiper = new Swiper(".mySwiper", {
-    slidesPerView: 1,
-    centeredSlides: true,
-    spaceBetween: 60,
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-    },
-    autoplay: {
-      delay: 2500,
-      disableOnInteraction: false,
-    },
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
-  });
-}
