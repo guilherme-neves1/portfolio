@@ -1,33 +1,24 @@
-// ==================== HEADER ====================
-const btnToggle = document.querySelector(".btn-toggle"),
-  btnClose = document.querySelector(".btn-close"),
-  navMenu = document.querySelector("nav");
+// ==================== More Projects ====================
+const buttonMoreProjects = document.querySelector(".btn-more"),
+  projects = document.querySelector("section.projects .container > div");
 
-// ==================== PROJECTS ====================
-const buttonMore = document.querySelector(".btn-more"),
-  allProjects = document.querySelector("section.projects .container > div");
+buttonMoreProjects.addEventListener("click", () => {
+  projects.classList.toggle("project_active");
+
+  if (projects.classList.contains("project_active")) {
+    return (buttonMoreProjects.textContent = "Ver menos");
+  }
+
+  buttonMoreProjects.textContent = "Ver mais";
+});
 
 // ==================== SKILLS ====================
+
 const skill = document.querySelectorAll("section.skills .grid i"),
   skillDesc = document.querySelector(".skills .skills_description p"),
   skillBar = document.querySelectorAll(".skills .grid .grid_item .bar");
 skillBar[0].classList.add("barActive");
 
-var texto = "";
-
-// ==================== PROJECTS ====================
-buttonMore.addEventListener("click", () => {
-  allProjects.classList.toggle("project_active");
-
-  if (allProjects.classList.contains("project_active")) {
-    return (buttonMore.textContent = "Ver menos");
-  }
-
-  buttonMore.textContent = "Ver mais";
-});
-// ==================== END PROJECTS ====================
-
-// ==================== SKILLS ====================
 skill[0].addEventListener("mouseover", () => {
   skillDesc.innerHTML =
     "O HTML5 é uma Linguagem de Marcação de Hipertexto, usado para construir a <strong>estrutura</strong> da página web e permitindo criar sites altamente eficientes por meio de tags específicas para cada tipo de conteúdo. <br /> Desenvolvo meu aprendizado em HTML através de cursos, da faculdade, de projetos, de tutoriais etc.";
@@ -87,12 +78,11 @@ skill[3].addEventListener("mouseover", () => {
   skillBar[2].classList.remove("barActive");
   skillBar[3].classList.add("barActive");
 });
-// ==================== END SKILLS ====================
 
-// ==================== SCROLL ACTIVE ====================
+// ==================== Scroll Active Menu Link ====================
 const sections = document.querySelectorAll("section[id]");
 
-const scrollActive = () => {
+const scrollActiveMenuLink = () => {
   const scrollDown = window.scrollY;
 
   sections.forEach((current) => {
@@ -111,10 +101,13 @@ const scrollActive = () => {
   });
 };
 
-window.addEventListener("scroll", scrollActive);
-// ==================== END SCROLL ACTIVE ====================
+window.addEventListener("scroll", scrollActiveMenuLink);
 
-// ==================== HEADER ====================
+// ==================== Header Mobile Buttons ====================
+const btnToggle = document.querySelector(".btn-toggle"),
+  btnClose = document.querySelector(".btn-close"),
+  navMenu = document.querySelector("nav");
+
 if (btnToggle) {
   btnToggle.addEventListener("click", () => {
     navMenu.classList.add("show-menu");
@@ -129,33 +122,39 @@ if (btnClose) {
     btnClose.classList.remove("show-close");
   });
 }
-// ==================== END HEADER ====================
 
-const itemsMenu = document.querySelectorAll("header .menu_link");
+// ==================== Menu Mobile Hidden on Click ====================
+function menuMobileHiddenClick() {
+  const itemsMenu = document.querySelectorAll("header .menu_link");
+  for (var i = 0; i < itemsMenu.length; i++) {
+    const navMenu = document.querySelector("nav");
 
-itemsMenu[0].addEventListener("click", () => {
-  navMenu.classList.remove("show-menu");
-});
+    itemsMenu[i].addEventListener("click", () => {
+      navMenu.classList.remove("show-menu");
+    });
+  }
+}
 
-itemsMenu[1].addEventListener("click", () => {
-  navMenu.classList.remove("show-menu");
-});
+menuMobileHiddenClick();
 
-itemsMenu[2].addEventListener("click", () => {
-  navMenu.classList.remove("show-menu");
-});
+// ==================== SCROLL REVEAL ====================
+window.addEventListener("scroll", reveal);
 
-itemsMenu[3].addEventListener("click", () => {
-  navMenu.classList.remove("show-menu");
-});
+function reveal() {
+  const reveals = document.querySelectorAll(".reveal");
 
-itemsMenu[4].addEventListener("click", () => {
-  navMenu.classList.remove("show-menu");
-});
+  for (var i = 0; i < reveals.length; i++) {
+    const windowheight = window.innerHeight;
+    const revealtop = reveals[i].getBoundingClientRect().top;
+    const revealpoint = 20;
 
-itemsMenu[5].addEventListener("click", () => {
-  navMenu.classList.remove("show-menu");
-});
+    if (revealtop < windowheight - revealpoint) {
+      reveals[i].classList.add("active");
+    } else {
+      reveals[i].classList.remove("active");
+    }
+  }
+}
 
 // ==================== SKILLS SWIPER ====================
 if (window.innerWidth >= 1000) {
@@ -215,24 +214,4 @@ if (window.innerWidth < 700) {
       prevEl: ".swiper-button-prev",
     },
   });
-}
-// ==================== END SKILLS SWIPER ====================
-
-// ==================== SCROLL REVEAL ====================
-window.addEventListener("scroll", reveal);
-
-function reveal() {
-  const reveals = document.querySelectorAll(".reveal");
-
-  for (var i = 0; i < reveals.length; i++) {
-    const windowheight = window.innerHeight;
-    const revealtop = reveals[i].getBoundingClientRect().top;
-    const revealpoint = 20;
-
-    if (revealtop < windowheight - revealpoint) {
-      reveals[i].classList.add("active");
-    } else {
-      reveals[i].classList.remove("active");
-    }
-  }
 }
