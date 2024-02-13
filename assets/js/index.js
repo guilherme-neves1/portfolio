@@ -110,13 +110,10 @@ const btnToggle = document.querySelector(".btn-toggle"),
 
 btnToggle.addEventListener("click", () => {
   navMenu.classList.add("show-menu");
-  btnClose.classList.add("show-close");
 });
 
 btnClose.addEventListener("click", () => {
   navMenu.classList.remove("show-menu");
-  btnToggle.classList.remove("hidden-toggle");
-  btnClose.classList.remove("show-close");
 });
 
 // ==================== Menu Mobile Hidden on Click ====================

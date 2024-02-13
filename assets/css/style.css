@@ -540,14 +540,6 @@ nav > ul > li > a:hover::after {
   top: 0;
 }
 
-.hidden-toggle {
-  display: none;
-}
-
-.show-close {
-  right: 47px;
-}
-
 /* =============== START =============== */
 section.start {
   padding: 350px 0;
