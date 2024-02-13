@@ -138,10 +138,6 @@ ul {
     font-size: 0.875rem;
   }
 
-  section#about .flex img {
-    display: none;
-  }
-
   section#projects .flex h3 {
     font-size: 1.3rem;
   }
@@ -412,7 +408,17 @@ ul {
   }
 
   section#about > .container > div > .about_content .about_image {
-    display: none;
+    height: 250px;
+    width: 250px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  section#about > .container > div > .about_content .about_image img {
+    height: 100%;
+    width: 100%;
   }
 
   section#projects .flex .project_card {
