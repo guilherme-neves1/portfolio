@@ -108,20 +108,16 @@ const btnToggle = document.querySelector(".btn-toggle"),
   btnClose = document.querySelector(".btn-close"),
   navMenu = document.querySelector("nav");
 
-if (btnToggle) {
-  btnToggle.addEventListener("click", () => {
-    navMenu.classList.add("show-menu");
-    btnClose.classList.add("show-close");
-  });
-}
+btnToggle.addEventListener("click", () => {
+  navMenu.classList.add("show-menu");
+  btnClose.classList.add("show-close");
+});
 
-if (btnClose) {
-  btnClose.addEventListener("click", () => {
-    navMenu.classList.remove("show-menu");
-    btnToggle.classList.remove("hidden-toggle");
-    btnClose.classList.remove("show-close");
-  });
-}
+btnClose.addEventListener("click", () => {
+  navMenu.classList.remove("show-menu");
+  btnToggle.classList.remove("hidden-toggle");
+  btnClose.classList.remove("show-close");
+});
 
 // ==================== Menu Mobile Hidden on Click ====================
 function menuMobileHiddenClick() {
