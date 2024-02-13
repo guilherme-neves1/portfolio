@@ -969,6 +969,10 @@ footer .container h3 {
   text-align: center;
 }
 
+footer .container p {
+  color: var(--DEFAULT-FONT-COLOR);
+}
+
 footer .flex {
   flex-direction: column;
 }
@@ -1055,22 +1059,17 @@ footer .flex .form-contact .contact-social .contact-email p {
 
 footer .flex .form-contact .contact-social .contact-redes {
   margin-top: 30px;
-}
-
-footer .flex .form-contact .contact-social .contact-redes h4 {
-  margin-bottom: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
 .form-contact .contact-social .contact-redes a {
   display: flex;
   align-items: center;
   gap: 15px;
+  font-size: 1rem;
 }
 .form-contact .contact-social .contact-redes a i {
-  font-size: 2rem;
-}
-
-footer .container p {
-  font-size: 1rem;
-  color: var(--DEFAULT-FONT-COLOR);
+  font-size: 1.5rem;
 }
