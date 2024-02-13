@@ -118,11 +118,11 @@ ul {
     font-size: 1.5rem;
   }
 
-  section#start .start_text ul li a button {
+  section#start .start_text ul li a.btn_cv {
     font-size: 0.875rem;
   }
 
-  section#start .start_text ul li a button i {
+  section#start .start_text ul li a.btn_cv i {
     font-size: 0.875rem;
   }
 
@@ -574,20 +574,26 @@ section.start > div > .start_text > ul {
   font-size: 2rem;
 }
 
-.start_text > ul > li > a > .btn_cv {
-  border: none;
-  height: 2.5rem;
-  font-size: 0.875rem;
-  width: 150px;
-  border-radius: 10px;
+.start_text > ul > li > a.btn_cv {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 5px 10px;
+
+  font-size: 1rem;
   color: var(--PRIMARY-COLOR);
   background-color: var(--DEFAULT-FONT-COLOR);
+  border-radius: 10px;
+
   cursor: pointer;
   transition: all 0.25s ease;
-  position: relative;
 }
 
-.start_text > ul > li > a > .btn_cv:hover {
+.start_text > ul > li > a.btn_cv i {
+  font-size: 1.3rem;
+}
+
+.start_text > ul > li > a.btn_cv:hover {
   transform: translate(0, 2px);
   box-shadow: 0 -5px 0 var(--BLUE-COLOR);
 }

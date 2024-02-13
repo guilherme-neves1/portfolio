@@ -1,26 +1,26 @@
 // ==================== Scroll Active Menu Link ====================
-const sections = document.querySelectorAll("section[id]");
+// const sections = document.querySelectorAll("section[id]");
 
-const scrollActiveMenuLink = () => {
-  const scrollDown = window.scrollY;
+// const scrollActiveMenuLink = () => {
+//   const scrollDown = window.scrollY;
 
-  sections.forEach((current) => {
-    const sectionHeight = current.offsetHeight,
-      sectionTop = current.offsetTop - 300,
-      sectionId = current.getAttribute("id"),
-      sectionClass = document.querySelector(
-        ".nav_menu a[href='#" + sectionId + "']"
-      );
+//   sections.forEach((current) => {
+//     const sectionHeight = current.offsetHeight,
+//       sectionTop = current.offsetTop - 300,
+//       sectionId = current.getAttribute("id"),
+//       sectionClass = document.querySelector(
+//         ".nav_menu a[href='#" + sectionId + "']"
+//       );
 
-    if (scrollDown > sectionTop && scrollDown <= sectionTop + sectionHeight) {
-      sectionClass.classList.add("menu_active");
-    } else {
-      sectionClass.classList.remove("menu_active");
-    }
-  });
-};
+//     if (scrollDown > sectionTop && scrollDown <= sectionTop + sectionHeight) {
+//       sectionClass.classList.add("menu_active");
+//     } else {
+//       sectionClass.classList.remove("menu_active");
+//     }
+//   });
+// };
 
-window.addEventListener("scroll", scrollActiveMenuLink);
+// window.addEventListener("scroll", scrollActiveMenuLink);
 
 // ==================== Header Mobile Buttons ====================
 const navMenuMobile = document.querySelector("nav");
@@ -156,3 +156,51 @@ skills.forEach((skill, index) => {
     });
   });
 });
+
+// ==================== Scroll to Section href ====================
+const scrollToSection = (targetId) => {
+  const targetElement = document.querySelector(targetId);
+
+  if (targetElement) {
+    const targetOffset = targetElement.getBoundingClientRect().top;
+    const scrollTo = targetOffset + window.scrollY - window.innerHeight / 4;
+
+    window.scrollTo({
+      top: scrollTo,
+      behavior: "smooth",
+    });
+  }
+};
+
+// Menu-link highlighted
+const sections = document.querySelectorAll("section[id]");
+
+const scrollActiveMenuLink = () => {
+  const scrollDown = window.scrollY;
+
+  sections.forEach((current) => {
+    const sectionHeight = current.offsetHeight,
+      sectionTop = current.offsetTop - 300,
+      sectionId = current.getAttribute("id"),
+      sectionClass = document.querySelector(
+        ".nav_menu a[href='#" + sectionId + "']"
+      );
+
+    if (scrollDown > sectionTop && scrollDown <= sectionTop + sectionHeight) {
+      sectionClass.classList.add("menu_active");
+    } else {
+      sectionClass.classList.remove("menu_active");
+    }
+  });
+};
+
+// Click menu-link
+document.querySelectorAll(".menu_link").forEach((anchor) => {
+  anchor.addEventListener("click", function (e) {
+    e.preventDefault();
+    const targetId = this.getAttribute("href");
+    scrollToSection(targetId);
+  });
+});
+
+window.addEventListener("scroll", scrollActiveMenuLink);
