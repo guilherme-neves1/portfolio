@@ -50,7 +50,7 @@ html {
   --clr-2: #208abe;
   --clr-3: #2271c0;
   --clr-4: #436cd3;
-  --clr-5: rgb(50, 79, 209);
+  --clr-5: rgb(54, 80, 196);
 }
 
 /* DEFAULT */
@@ -650,15 +650,6 @@ section.about > .container > div > .about_content .about_image {
   position: relative;
 }
 
-section.about > .container > div > .about_content .about_image img {
-  position: relative;
-  width: 100%;
-  object-fit: cover;
-  height: 250px;
-  cursor: pointer;
-  z-index: 1;
-}
-
 section.about > .container > div > .about_content .about_image::before,
 section.about > .container > div > .about_content .about_image::after {
   content: "";
@@ -679,11 +670,25 @@ section.about > .container > div > .about_content .about_image::after {
     var(--clr-2),
     var(--clr-1)
   );
-  animation: rotation 10s linear infinite;
+  animation: rotation 5s linear infinite;
 }
 
 section.about > .container > div > .about_content .about_image::after {
   filter: blur(1rem);
+}
+
+section.about > .container > div > .about_content .about_image img {
+  position: relative;
+  width: 100%;
+  object-fit: cover;
+  height: 250px;
+  cursor: pointer;
+  z-index: 1;
+  transition: 0.5s all ease;
+}
+
+section.about > .container > div > .about_content .about_image img:hover {
+  transform: scale(1.05);
 }
 
 /* =============== PROJECTS =============== */
