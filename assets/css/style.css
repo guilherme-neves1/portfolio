@@ -936,10 +936,16 @@ section.certificates .cert_i_wrapper {
 }
 
 section.certificates .cert_card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
   background-color: var(--PRIMARY-COLOR);
   border: 2px solid var(--BLUE-COLOR);
   box-shadow: 0 5px 15px var(--PRIMARY-COLOR);
   border-radius: 10px;
+  height: 260px;
+
   padding: 25px 15px;
 }
 
@@ -947,13 +953,15 @@ section.certificates .cert_card h4 {
   color: var(--BLUE-COLOR);
   font-weight: 700;
   font-size: 1.25rem;
-  margin-bottom: 20px;
 }
 
 section.certificates .cert_card p {
-  color: var(--DEFAULT-FONT-COLOR);
+  color: #d9e1e270;
   font-size: 0.85rem;
-  line-height: 1.3rem;
+}
+
+section.certificates .cert_card p span {
+  color: var(--DEFAULT-FONT-COLOR);
 }
 
 /* =============== CONTACTS =============== */
@@ -1031,12 +1039,13 @@ footer form input[type="submit"] {
   background-color: var(--BLUE-COLOR);
   color: var(--DEFAULT-FONT-COLOR);
   font-weight: 700;
-  box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.15);
-  transition: all 0.15s ease;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.15);
+
+  transition: all 0.25s ease;
 }
 
 footer form input[type="submit"]:hover {
-  box-shadow: inset 3px 3px 0 rgba(0, 0, 0, 0.35);
+  box-shadow: inset 3px 3px 3px rgba(0, 0, 0, 0.35);
   transform: translate(1px, 1px);
 }
 
