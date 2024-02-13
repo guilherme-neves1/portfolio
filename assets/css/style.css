@@ -367,7 +367,7 @@ ul {
     font-size: 1.2rem;
   }
 
-  header .header .btn-toggle {
+  header .header .btn-hambger {
     display: block;
     position: absolute;
     right: 50px;
@@ -493,10 +493,6 @@ nav > ul > li > a {
   position: relative;
 }
 
-.menu_active {
-  color: var(--BLUE-COLOR);
-}
-
 nav > ul > li > a::after {
   content: "";
   position: absolute;
@@ -520,13 +516,13 @@ nav > ul > li > a:hover::after {
   transform: scale(1, 1);
 }
 
-.header .btn-toggle,
+.header .btn-hambger,
 .header .btn-close {
   display: none;
   cursor: pointer;
 }
 
-.header .btn-toggle i {
+.header .btn-hambger i {
   font-size: 2rem;
   cursor: pointer;
 }
@@ -536,7 +532,11 @@ nav > ul > li > a:hover::after {
   cursor: pointer;
 }
 
-.show-menu {
+.menu_active {
+  color: var(--BLUE-COLOR);
+}
+
+.show-menu-mobile {
   top: 0;
 }
 

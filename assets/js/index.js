@@ -104,17 +104,23 @@ const scrollActiveMenuLink = () => {
 window.addEventListener("scroll", scrollActiveMenuLink);
 
 // ==================== Header Mobile Buttons ====================
-const btnToggle = document.querySelector(".btn-toggle"),
-  btnClose = document.querySelector(".btn-close"),
-  navMenu = document.querySelector("nav");
 
-btnToggle.addEventListener("click", () => {
-  navMenu.classList.add("show-menu");
-});
+function showMenuMobile() {
+  const mobMenuShowClose = document.querySelectorAll(".show-close"),
+    navMenuMobile = document.querySelector("nav");
 
-btnClose.addEventListener("click", () => {
-  navMenu.classList.remove("show-menu");
-});
+  for (var i = 0; i < mobMenuShowClose.length; i++) {
+    mobMenuShowClose[i].addEventListener("click", () => {
+      return navMenuMobile.classList.toggle("show-menu-mobile");
+    });
+  }
+}
+
+showMenuMobile();
+
+// btnClose.addEventListener("click", () => {
+//   navMenu.classList.remove("show-menu");
+// });
 
 // ==================== Menu Mobile Hidden on Click ====================
 function menuMobileHiddenClick() {
